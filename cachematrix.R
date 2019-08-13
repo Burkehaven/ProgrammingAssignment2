@@ -7,26 +7,26 @@
 ## a matrix and its inverse in a cached environment
 makeCacheMatrix <- function(x = matrix()) {
 
-  ## initialize the matrix inverse
-  my_inverse <- NULL
+    ## initialize the matrix inverse
+    my_inverse <- NULL
 
-  ## create a function for storing the original martrix
-  set <- function(y) {
-    x <<- y
-    my_inverse <<- NULL
-  }
+    ## create a function for storing the original martrix
+    set <- function(y) {
+        x <<- y
+        my_inverse <<- NULL
+    }
 
-  ## get the original matrix
-  get <- function() x
+    ## get the original matrix
+    get <- function() x
 
-  ## stores the matrix, which is calculated cacheSolve, below
-  set_inverse <- function(new_inverse) my_inverse <<- new_inverse
+    ## stores the matrix, which is calculated cacheSolve, below
+    set_inverse <- function(new_inverse) my_inverse <<- new_inverse
 
-  ## get the inverse previously calculated
-  get_inverse <- function() my_inverse
+    ## get the inverse previously calculated
+    get_inverse <- function() my_inverse
 
-  ## return the four functions above
-  list(set = set, get = get, set_inverse = set_inverse,
+    ## return the four functions above
+    list(set = set, get = get, set_inverse = set_inverse,
        get_inverse = get_inverse)
 }
 
