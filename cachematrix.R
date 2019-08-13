@@ -1,46 +1,28 @@
 ## Functions for caching a matrix and its inverse
-## - makeCacheMatrix interacts with the cached environment
-## -
 
-## Input: a matrix, default, an empty matrix
-## Returns a list of functions for getting and setting
-## an NxN matrix and its inverse in a cached environment
-
+## Input: an N X N square, numeric, invertible Matrix
+##        in keeping with assignment directions, proper input
+##        is assumed
+## Returns: a matrix object for a square numeric matrix with four
+##          methods
+##          set: sets the matrix
+##          get: sets the matrix
+##          set_inverse: sets the matrix
+##          get_inverse: sets the matrix
 makeCacheMatrix <- function(x = matrix()) {
-    catchErrors <- function(x) {
-        properMatrix = TRUE
-        if (!is.matrix(x)) {
-            message("input x is not a matrix")
-            properMatrix = FALSE
-        }
-        if(!is.numeric.matrix(y)) {
-            message("input y is not a numeric matrix")
-            properMatrix = FALSE
-        }
-        if (ncol(x) != nrow(x)) {
-            message("Matrix x not N x N; not stored")
-            properMatrix = FALSE
-        }
-        return(properMatrix)
-    }
-
     ## initialize the matrix inverse
     my_inverse <- NULL
 
-    ## create a function for storing the original matrix
+    ## create a function for storing a new matrix
     set <- function(y) {
-        if (properMatrix(y)) {
             x <<- y
             my_inverse <<- NULL
-            return TRUE
-        }
-        return FALSE
     }
 
-    ## get the original matrix
+    ## get the matrix
     get <- function() x
 
-    ## stores the matrix, which is calculated cacheSolve, below
+    ## stores the matrix inverse, which is calculated elsewhere
     set_inverse <- function(new_inverse) my_inverse <<- new_inverse
 
     ## get the inverse previously calculated
