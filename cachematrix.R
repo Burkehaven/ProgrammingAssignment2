@@ -4,16 +4,25 @@
 
 ## Input: a matrix, default, an empty matrix
 ## Returns a list of functions for getting and setting
-## a matrix and its inverse in a cached environment
+## an NxN matrix and its inverse in a cached environment
 makeCacheMatrix <- function(x = matrix()) {
+    if (ncol(x) != nrow) {
+        message("Matrix not N x N; not stored")
+        NULL
+    }
 
     ## initialize the matrix inverse
     my_inverse <- NULL
 
-    ## create a function for storing the original martrix
+    ## create a function for storing the original matrix
     set <- function(y) {
-        x <<- y
-        my_inverse <<- NULL
+        if (ncol(y) == nrow(y)) {
+            x <<- y
+            my_inverse <<- NULL
+        } else {
+            message("Matrix not N x N; not stored")
+        }
+
     }
 
     ## get the original matrix
