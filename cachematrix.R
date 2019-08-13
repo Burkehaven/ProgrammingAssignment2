@@ -7,8 +7,11 @@
 ## an NxN matrix and its inverse in a cached environment
 
 makeCacheMatrix <- function(x = matrix()) {
+    if (!is.matrix(x)) {
+        message("input x is not a matrix")
+    }
     if (ncol(x) != nrow(x)) {
-        message("Matrix not N x N; not stored")
+        message("Matrix x not N x N; not stored")
         NULL
     }
 
