@@ -9,10 +9,11 @@
 makeCacheMatrix <- function(x = matrix()) {
     if (!is.matrix(x)) {
         message("input x is not a matrix")
+        return(NULL)
     }
     if (ncol(x) != nrow(x)) {
         message("Matrix x not N x N; not stored")
-        NULL
+        return(NULL)
     }
 
     ## initialize the matrix inverse
