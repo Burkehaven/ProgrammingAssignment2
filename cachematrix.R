@@ -5,8 +5,9 @@
 ## Input: a matrix, default, an empty matrix
 ## Returns a list of functions for getting and setting
 ## an NxN matrix and its inverse in a cached environment
+
 makeCacheMatrix <- function(x = matrix()) {
-    if (ncol(x) != nrow) {
+    if (ncol(x) != nrow(x)) {
         message("Matrix not N x N; not stored")
         NULL
     }
