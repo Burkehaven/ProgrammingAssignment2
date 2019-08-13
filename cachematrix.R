@@ -7,13 +7,21 @@
 ## an NxN matrix and its inverse in a cached environment
 
 makeCacheMatrix <- function(x = matrix()) {
-    if (!is.matrix(x)) {
-        message("input x is not a matrix")
-        return(NULL)
-    }
-    if (ncol(x) != nrow(x)) {
-        message("Matrix x not N x N; not stored")
-        return(NULL)
+    catchErrors <- function(x) {
+        properMatrix = TRUE
+        if (!is.matrix(x)) {
+            message("input x is not a matrix")
+            properMatrix = FALSE
+        }
+        if(!is.numeric.matrix(y)) {
+            message("input y is not a numeric matrix")
+            properMatrix = FALSE
+        }
+        if (ncol(x) != nrow(x)) {
+            message("Matrix x not N x N; not stored")
+            properMatrix = FALSE
+        }
+        return(properMatrix)
     }
 
     ## initialize the matrix inverse
@@ -21,17 +29,12 @@ makeCacheMatrix <- function(x = matrix()) {
 
     ## create a function for storing the original matrix
     set <- function(y) {
-        if(!is.matrix(y)){
-            message("input x is not a matrix")
-            return(NULL)
-        }
-        if (ncol(y) == nrow(y)) {
+        if (properMatrix(y)) {
             x <<- y
             my_inverse <<- NULL
-        } else {
-            message("Matrix not N x N; not stored")
+            return TRUE
         }
-
+        return FALSE
     }
 
     ## get the original matrix
