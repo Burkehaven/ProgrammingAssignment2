@@ -21,6 +21,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
     ## create a function for storing the original matrix
     set <- function(y) {
+        if(!is.matrix(y)){
+            message("input x is not a matrix")
+            return(NULL)
+        }
         if (ncol(y) == nrow(y)) {
             x <<- y
             my_inverse <<- NULL
