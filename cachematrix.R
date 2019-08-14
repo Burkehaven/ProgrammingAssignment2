@@ -43,7 +43,6 @@ cacheSolve <- function(x, ...) {
         # get the inverse: either NULL, if not calculated, or a cached
         # version of the inverse
         my_inverse <- x$get_inverse()
-        print(my_inverse)
 
         # if inverse already calculated, return it
         if (!is.null(my_inverse)) {

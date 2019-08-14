@@ -51,16 +51,25 @@ identical(x$get_inverse(), new_inverse)
 # -----------------------------------------------------------------------------
 
 ## Test the function with the default empty matrix
+x = makeCacheMatrix()
+# Get the matrix inverse, remember, NA's return more NA's
+cacheSolve(x)
+# get it again
+for (i in 1:10) cacheSolve(x)
+
+## Test the function with the default empty matrix
 x = makeCacheMatrix(matrix(c(1, 2, 3, 4), nrow = 2))
 # Get the matrix inverse, remember, NA's return more NA's
 cacheSolve(x)
 # get it again
 cacheSolve(x)
 
+# make sure keeps working
 for (i in 1:20) {
   cacheSolve(x)
 }
 
+# test repeatedly
 x$set(matrix(rnorm(36), nrow = 6))
 
 for (i in 1:20) {
