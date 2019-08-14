@@ -66,13 +66,13 @@ cacheSolve(x)
 
 # make sure keeps working
 for (i in 1:20) {
-  cacheSolve(x)
+  print(cacheSolve(x))
 }
 
 # test repeatedly
 x$set(matrix(rnorm(36), nrow = 6))
 
 for (i in 1:20) {
-  cacheSolve(x)
+  print(cacheSolve(x))
 }
 
