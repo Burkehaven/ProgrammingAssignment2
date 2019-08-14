@@ -49,3 +49,15 @@ identical(x$get_inverse(), new_inverse)
 # -----------------------------------------------------------------------------
 #            Test: cacheSolve()
 # -----------------------------------------------------------------------------
+
+## Test the function with the default empty matrix
+x = makeCacheMatrix()
+# Get the matrix inverse, remember, NA's return more NA's
+cacheSolve(x)
+# get it again
+cacheSolve(x)
+
+
+
+
+
