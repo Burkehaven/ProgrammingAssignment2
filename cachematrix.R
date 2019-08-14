@@ -51,18 +51,9 @@ cacheSolve <- function(x, ...) {
             return(x$get_inverse())
         }
 
-        # Get the matrix
-        my_matrix <- x$get()
-        print(my_matrix)
-
-        # Calculate the matrix (all assumed to be invertible)
-        message("solving inverse")
-        my_inverse <- solve(my_matrix, ...)
-        print(my_inverse)
-
         # Cache the calculated inverse
-        x$set_inverse(matrix)
+        x$set_inverse(solve(x$get()))
 
         # return the inverse
-        my_inverse
+        x$get_inverse()
 }
