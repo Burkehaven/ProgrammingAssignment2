@@ -39,6 +39,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Returns: The inverse of the matrix.
 ##          If the inverse already calculated, it is returned from cache
 ##          Otherwise, calculated, stored, and returned
+## Writes message to screen when getting cached data
 cacheSolve <- function(x, ...) {
         # get the inverse: either NULL, if not calculated, or a cached
         # version of the inverse
